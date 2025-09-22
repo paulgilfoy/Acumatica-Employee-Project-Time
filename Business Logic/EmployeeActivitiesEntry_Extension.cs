@@ -160,7 +160,7 @@ namespace PX.Objects.EP
                     if (pMTimeActivityExt.UsrPGProgressEndTime != null && pMTimeActivityExt.UsrPGProgressStartTime < pMTimeActivityExt.UsrPGProgressEndTime)
                         {
                             TimeSpan t = (TimeSpan)(pMTimeActivityExt.UsrPGProgressEndTime - pMTimeActivityExt.UsrPGProgressStartTime);
-                            if (t.TotalMinutes > 720)
+                            if (t.TotalMinutes > 1080)
                                 {throw new PXException(String.Format("Clock has been running for over 12 hours. Please fix manually."));
                                 return;}
                             pMTimeActivityExt.UsrPGProgressTimeSpent = (int)t.TotalMinutes;
@@ -220,7 +220,7 @@ namespace PX.Objects.EP
                         if (pMTimeActivityExt.UsrPGProgressEndTime != null && pMTimeActivityExt.UsrPGProgressStartTime < pMTimeActivityExt.UsrPGProgressEndTime)
                             {
                                 TimeSpan t = (TimeSpan)(pMTimeActivityExt.UsrPGProgressEndTime - pMTimeActivityExt.UsrPGProgressStartTime);
-                                if (t.TotalMinutes > 720)
+                                if (t.TotalMinutes > 1080)
                                 {throw new PXException(String.Format("Clock has been running for over 12 hours. Please fix manually."));
                                 return;}
                                 pMTimeActivityExt.UsrPGProgressTimeSpent = (int)t.TotalMinutes;
