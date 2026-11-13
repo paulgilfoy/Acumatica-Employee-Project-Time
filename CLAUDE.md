@@ -1,7 +1,9 @@
 # Agent instructions — Acumatica-Employee-Project-Time
 
-**Status: LEGACY.** This is the old stopwatch on EP307000 (`ProjectTime` customization). It is being retired in
-favor of `Acumatica-PK-TimeClock` (screen `PKEP3001`). Change it only to support that switchover.
+**Status: RETIRING (2026-11-13, decision D16 in `Acumatica-PK-TimeClock`).** This is the old stopwatch on EP307000
+(`ProjectTime` customization). EP307000 itself stays in use for years, but **all of its clock code now lives in
+`..\Acumatica-PK-TimeClock`** (project `PKTimeClock`). `ProjectTime` is unpublished at the next PKTimeClock publish.
+Do EP307000 clock work there, not here. `src/` here mirrors what is live until that cutover; don't change it.
 
 1. Read `scratchpad.md` first (status, what is live, coordination rules, work claims).
 2. Use `navigation.md` (here) and the `navigation.md` in each folder to find things.

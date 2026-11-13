@@ -1,6 +1,7 @@
 # Acumatica-Employee-Project-Time
 
-> **Legacy.** Being replaced by [`Acumatica-PK-TimeClock`](../Acumatica-PK-TimeClock) (screen `PKEP3001`).
+> **Retiring (2026-11-13).** The EP307000 clock code moved to [`Acumatica-PK-TimeClock`](../Acumatica-PK-TimeClock) (decision D16);
+> EP307000 stays in use. This project (`ProjectTime`) is unpublished at the next PKTimeClock publish.
 > Agents: start with `CLAUDE.md` → `scratchpad.md` → `navigation.md`.
 
 Acumatica customization (`ProjectTime`) that lets employees enter time activities as a stopwatch from the
