@@ -1,0 +1,9 @@
+<template>
+	<field name="UsrPGFromDate" after="#fs-Dates [name='TillWeek']"></field>
+	<field name="UsrPGTillDate" after="#fs-Dates [name='UsrPGFromDate']"></field>
+
+	<div id="div-TimeClockActions" after="#form-Filter" class="h-stack">
+		<qp-button id="btnPauseTimer" state.bind="Pause_Timer"></qp-button>
+		<qp-button id="btnStopTimer" state.bind="Stop_Timer"></qp-button>
+	</div>
+</template>

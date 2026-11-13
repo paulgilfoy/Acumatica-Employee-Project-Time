@@ -1,14 +1,24 @@
-# Acumatica-Employee-Project-TIme
- Acumatica Customization to allow employees to enter time activities from the "Employee Time Activities" (EP307000) screen 
+# Acumatica-Employee-Project-Time
 
- See the "Business Logic" folder for the customizations to the Business Logic. 
- The actual Time-Clock feature is from Line 118 to 277. 
- Line 118 to 165 are for setting default values for 3 fields.
- The two actions - stop_Timer() and pause_Timer() are from Line 170 to 277
+> **Legacy.** Being replaced by [`Acumatica-PK-TimeClock`](../Acumatica-PK-TimeClock) (screen `PKEP3001`).
+> Agents: start with `CLAUDE.md` → `scratchpad.md` → `navigation.md`.
 
- 
- See the "DACs" folder for customizations to the Data Base. 
- The core functionality of the Time-Clock is in PMTimeActivity and EPActivityApprove.  PMTimeActivity is the base DAC. Any changes to EPActivityApprove should be mimicked in PMTimeActivity.
- PMTimeActivityFilter is for customizing the view on the screen.
+Acumatica customization (`ProjectTime`) that lets employees enter time activities as a stopwatch from the
+"Employee Time Activities" (EP307000) screen. Targets Acumatica 2026 R2 (26.200) **Modern UI** on PK9.
 
- There is a UI element needed when publishing this customization. Please see "customization_project_exports" for the .zip file for this customization. If one is building it manually, please add EP307000 to the "Customized Screens". The added DAC fields will be added on the Form: Filter and Grid: Activity sections in whatever UI format the business requires. 
+## Layout
+| Folder | Contents |
+|---|---|
+| `src/Code/` | Graph extension `EmployeeActivitiesEntry_Extension.cs`. The Time-Clock feature is lines 118–277: 118–165 set default values for 3 fields; the two actions `stop_Timer()` and `pause_Timer()` are lines 170–277. |
+| `src/DACs/` | Attribute snippets for the custom database fields. The core of the Time-Clock is in `PMTimeActivity` and `EPActivityApprove` (base DAC is `PMTimeActivity`; mirror any `EPActivityApprove` change there). `PMTimeActivityFilter` customizes the screen filter. |
+| `src/FrontendSources/screens/EP/EP307000/extensions/` | **Modern UI** extension of EP307000: Pause/Stop buttons, From/Until filter dates, clock columns in the Activity grid. |
+| `docs/screenshots/` | Example screenshots of the legacy screen |
+| `reference/base-code/` | Acumatica base source for reference (older version) |
+| `exports/` | Exported customization package from the original Classic-era project |
+| `tools/` | `Test-ModernUI.ps1` — type-check the Modern UI TypeScript |
+
+## Publishing
+Add `EP307000` to the project's **Customized Screens** and include the Modern UI files
+(`screens\EP\EP307000\extensions\EP307000_PKTimeClock.ts` / `.html`) as per-tenant files. The added DAC fields appear in the
+Filter form and Activity grid via the Modern UI extension; no extra layout work is needed. The files in `exports/` predate Modern UI
+and do **not** include them — see `exports/navigation.md`.
